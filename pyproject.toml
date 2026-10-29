@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aider-session-walkthrough"
+version = "0.1.0"
+description = "A read-only review and export tool for Aider history and Git checkpoints"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "jabrailkhalil"}]
+readme = "README.md"
+
+[project.scripts]
+aider-walkthrough = "aider_walkthrough.__main__:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.12", "mypy>=1.19", "build>=1.2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["python/aider_walkthrough"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+extend-exclude = [".venv*", "node_modules", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]

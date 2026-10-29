@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5f1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; object-src 'none'; base-uri 'none'"
+    />
+    <title>Session walkthrough · Aider companion demo</title>
+  </head>
+  <body>
+    <header>
+      <a href="./">Session walkthrough</a
+      ><span>A read-only Aider companion demo</span>
+    </header>
+    <main>
+      <section class="intro">
+        <p class="eyebrow">FROM A PROMPT TO A PATCH</p>
+        <h1>A coding session, step by step.</h1>
+        <p>
+          Inspect selected conversation excerpts and their explicitly linked Git
+          checkpoints.
+        </p>
+      </section>
+      <section class="import">
+        <label for="session-file">Open a reviewed session JSON</label
+        ><input type="file" id="session-file" accept=".json,application/json" />
+        <p id="import-status" role="alert"></p>
+      </section>
+      <div id="app" aria-busy="true">
+        <p role="status">Loading the example…</p>
+      </div>
+      <noscript>This player requires JavaScript.</noscript>
+    </main>
+    <footer>
+      Independent prototype by
+      <a href="https://github.com/jabrailkhalil/aider-session-walkthrough"
+        >jabrailkhalil</a
+      >. Files stay in this browser; commands and patches are displayed as text.
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

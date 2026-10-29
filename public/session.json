@@ -1,0 +1,31 @@
+{
+  "payload": {
+    "version": 1,
+    "title": "A small normalization change",
+    "provenance": "Curated demo fixture with real Git commits; not a live model session.",
+    "mapping": "explicit",
+    "transcript": "# aider chat started at 2026-01-01 00:00:00\n\n#### Trim leading and trailing spaces in normalize().\n\nI changed normalize() to call strip().\nFixture token: [REDACTED]\n\n#### Make comparison case-insensitive, including Straße.\n\nI added casefold() after strip(). This maps Straße to strasse.\n",
+    "checkpoints": [
+      {
+        "id": "trim",
+        "title": "Trim surrounding whitespace",
+        "commit": "35082cff35feee4ad37e99e7eeb9af662dec3ab1",
+        "parent": "31d18001f872b9914ff646c66bedaec03642b341",
+        "history_lines": [3, 6],
+        "excerpt": "#### Trim leading and trailing spaces in normalize().\n\nI changed normalize() to call strip().\nFixture token: [REDACTED]",
+        "patch": "diff --git a/normalize.py b/normalize.py\nindex 1a70c5e..d965259 100644\n--- a/normalize.py\n+++ b/normalize.py\n@@ -1,2 +1,3 @@\n+# Fixture token: [REDACTED]\n def normalize(value):\n-    return value\n+    return value.strip()\n"
+      },
+      {
+        "id": "case",
+        "title": "Normalize Unicode case",
+        "commit": "12ed2d39cf52133826490b2700a2ccbc37870583",
+        "parent": "35082cff35feee4ad37e99e7eeb9af662dec3ab1",
+        "history_lines": [8, 10],
+        "excerpt": "#### Make comparison case-insensitive, including Straße.\n\nI added casefold() after strip(). This maps Straße to strasse.",
+        "patch": "diff --git a/normalize.py b/normalize.py\nindex d965259..191f20e 100644\n--- a/normalize.py\n+++ b/normalize.py\n@@ -1,3 +1,3 @@\n # Fixture token: [REDACTED]\n def normalize(value):\n-    return value.strip()\n+    return value.strip().casefold()\n"
+      }
+    ],
+    "redaction_count": 4
+  },
+  "sha256": "74bfdffba9bbcb50d36d98e758eb53c8989d7e8933c61c21c5d58c6c855e7105"
+}
