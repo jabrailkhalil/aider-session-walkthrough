@@ -65,6 +65,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npx prettier --write public/session.json
       - run: npm test
       - run: git diff --exit-code -- public/session.json
   pages:
